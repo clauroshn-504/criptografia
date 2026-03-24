@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Double Ratchet — Simulador Interactivo</title>
+<title>Double Ratchet — Simulador Dark</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --alice:   #378ADD;
-  --alice-l: #E6F1FB;
-  --alice-m: #B5D4F4;
-  --alice-d: #0C447C;
-  --bob:     #1D9E75;
-  --bob-l:   #E1F5EE;
-  --bob-m:   #9FE1CB;
-  --bob-d:   #085041;
-  --amber:   #BA7517;
-  --amber-l: #FAEEDA;
-  --amber-m: #FAC775;
-  --purple:  #534AB7;
-  --purple-l:#EEEDFE;
-  --purple-m:#CECBF6;
-  --red:     #A32D2D;
-  --red-l:   #FCEBEB;
-  --green:   #3B6D11;
-  --green-l: #EAF3DE;
-  --bg:      #F4F6FA;
-  --surface: #FFFFFF;
-  --border:  rgba(0,0,0,0.08);
-  --border2: rgba(0,0,0,0.14);
-  --text:    #1a1a1a;
-  --text2:   #555;
-  --text3:   #999;
+  --alice:   #4f9cf9;
+  --alice-l: #0f1e38;
+  --alice-m: #1a3a6b;
+  --alice-d: #93c5fd;
+  --bob:     #34d399;
+  --bob-l:   #061f17;
+  --bob-m:   #0d4a35;
+  --bob-d:   #6ee7b7;
+  --amber:   #f59e0b;
+  --amber-l: #1f1405;
+  --amber-m: #4a2f05;
+  --purple:  #a78bfa;
+  --purple-l:#1a1240;
+  --purple-m:#3b2d7a;
+  --red:     #f87171;
+  --red-l:   #2a0d0d;
+  --green:   #4ade80;
+  --green-l: #052010;
+  --bg:      #0d0f14;
+  --surface: #141720;
+  --border:  rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text:    #e2e8f0;
+  --text2:   #94a3b8;
+  --text3:   #4a5568;
   --mono:    'Geist Mono', monospace;
   --sans:    'Geist', sans-serif;
   --radius:  12px;
@@ -68,7 +68,7 @@ body {
 .topbar-logo span { color: var(--alice); }
 .topbar-badge {
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 10px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--amber);
@@ -105,7 +105,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 11px;
   font-family: var(--mono);
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -149,13 +149,13 @@ body {
   justify-content: center;
   gap: 8px;
   color: var(--text3);
-  font-size: 26px;
+  font-size: 13px;
   text-align: center;
   padding: 2rem;
 }
 .empty-icon {
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--border);
+  background: #1c2030;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
 }
@@ -171,7 +171,7 @@ body {
 
 .av {
   width: 30px; height: 30px; border-radius: 50%;
-  font-family: var(--mono); font-size: 14px; font-weight: 600;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -183,7 +183,7 @@ body {
 
 .bubble {
   padding: 9px 13px;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1.5;
   max-width: 100%;
   position: relative;
@@ -214,14 +214,14 @@ body {
 
 .tag {
   font-family: var(--mono);
-  font-size: 18px;
+  font-size: 16px;
   padding: 2px 7px;
   border-radius: 99px;
   border: 1px solid transparent;
   white-space: nowrap;
 }
 .tag-dh-new  { background: var(--amber-l); color: var(--amber);  border-color: var(--amber-m); }
-.tag-dh-same { background: #f1f1f1;         color: var(--text3);  border-color: #ddd; }
+.tag-dh-same { background: #1c2030; color: var(--text3); border-color: #2a2f42; }
 .tag-kdf     { background: var(--purple-l); color: var(--purple); border-color: var(--purple-m); }
 
 /* ── CONTROLS ── */
@@ -250,7 +250,7 @@ body {
 .btn:disabled { opacity: .35; cursor: not-allowed; }
 .btn-alice { background: var(--alice-l); color: var(--alice-d); border-color: var(--alice-m); }
 .btn-bob   { background: var(--bob-l);   color: var(--bob-d);   border-color: var(--bob-m); }
-.btn-reset { background: #f1f1f1; color: var(--text2); border-color: #ddd; }
+.btn-reset { background: #1c2030; color: var(--text2); border-color: #2a2f42; }
 
 /* ── SIDEBAR ── */
 .sidebar {
@@ -268,7 +268,7 @@ body {
 .section { padding: 14px 16px; border-bottom: 1px solid var(--border); }
 .section-title {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--text3);
@@ -285,7 +285,7 @@ body {
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 13px;
   padding: 5px 8px;
   border-radius: 6px;
   border: 1px solid transparent;
@@ -294,7 +294,7 @@ body {
 .dh-item.active { background: var(--amber-l); color: var(--amber); border-color: var(--amber-m); font-weight: 600; }
 .dh-item.dead   { color: var(--text3); text-decoration: line-through; }
 .dh-item.future { color: var(--text3); border: 1px dashed var(--border2); }
-.dh-arrow       { font-size: 12px; color: var(--text3); padding-left: 6px; }
+.dh-arrow       { font-size: 9px; color: var(--text3); padding-left: 6px; }
 
 /* KDF Sub-keys */
 .kdf-list { display: flex; flex-direction: column; gap: 4px; }
@@ -303,7 +303,7 @@ body {
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 14px;
   padding: 4px 8px;
   border-radius: 6px;
   background: var(--purple-l);
@@ -311,7 +311,7 @@ body {
   border: 1px solid var(--purple-m);
   animation: fadeUp .2s ease-out;
 }
-.kdf-item.dead { background: #f5f5f5; color: var(--text3); border-color: #e0e0e0; text-decoration: line-through; }
+.kdf-item.dead { background: #1c2030; color: var(--text3); border-color: #2a2f42; text-decoration: line-through; }
 .kdf-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
 /* Explain panel */
@@ -542,13 +542,13 @@ function renderDH() {
     const item = document.createElement('div');
     if (i < state.dhKey) {
       item.className = 'dh-item dead';
-      item.innerHTML = `<span>K${i}</span><span style="margin-left:auto;font-size:9px">✕ eliminada</span>`;
+      item.innerHTML = `<span>Llave${i}</span><span style="margin-left:auto;font-size:9px">✕ eliminada</span>`;
     } else if (i === state.dhKey) {
       item.className = 'dh-item active';
-      item.innerHTML = `<span>K${i}</span><span style="margin-left:auto;font-size:9px">← activa</span>`;
+      item.innerHTML = `<span>Llave${i}</span><span style="margin-left:auto;font-size:9px">← activa</span>`;
     } else {
       item.className = 'dh-item future';
-      item.innerHTML = `<span>K${i}</span><span style="margin-left:auto;font-size:9px">próxima</span>`;
+      item.innerHTML = `<span>Llave${i}</span><span style="margin-left:auto;font-size:9px">próxima</span>`;
     }
     el.appendChild(item);
   }
@@ -628,8 +628,8 @@ function send(sender) {
   const tagDH = document.createElement('span');
   tagDH.className = `tag ${isNewDH ? 'tag-dh-new' : 'tag-dh-same'}`;
   tagDH.textContent = isNewDH
-    ? `DH K${state.dhKey} ↑ nuevo`
-    : `DH K${state.dhKey} =`;
+    ? `DH Llave${state.dhKey} ↑ nuevo`
+    : `DH Llave${state.dhKey} =`;
 
   // KDF tag
   const tagKDF = document.createElement('span');
